@@ -14,5 +14,10 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
         {
             InitializeComponent();
         }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

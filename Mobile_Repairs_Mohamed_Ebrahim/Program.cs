@@ -17,7 +17,7 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Customers());
+            Application.Run(new Spares());
         }
     }
 }

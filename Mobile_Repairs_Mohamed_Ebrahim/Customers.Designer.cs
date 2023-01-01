@@ -187,6 +187,7 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.UpdateTbn.TabIndex = 10;
             this.UpdateTbn.Text = "Update";
             this.UpdateTbn.UseVisualStyleBackColor = false;
+            this.UpdateTbn.Click += new System.EventHandler(this.UpdateTbn_Click);
             // 
             // panel2
             // 

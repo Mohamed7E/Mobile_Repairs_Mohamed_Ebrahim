@@ -24,7 +24,13 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             String Query = "Select * from CustomerTb";
             CustomersList.DataSource = con.GetData(Query);
         }
-
+        private void clear()
+        {
+            CustNameTb.Text = "";
+            CustAddTb.Text = "";
+            CustPhoneTb.Text = "";
+            key = 0;
+        }
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             if (CustNameTb.Text == "" || CustAddTb.Text == "" || CustPhoneTb.Text == "")
@@ -65,6 +71,33 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
                 key = Convert.ToInt32(CustomersList.SelectedRows[0].Cells[0].Value.ToString());
             }
 
+        }
+
+        private void UpdateTbn_Click(object sender, EventArgs e)
+        {
+            if (CustNameTb.Text == "" || CustAddTb.Text == "" || CustPhoneTb.Text == "")
+            {
+                MessageBox.Show("Missing Data");
+            }
+            else
+            {
+                try
+                {
+                    String CName = CustNameTb.Text;
+                    String CPhone = CustPhoneTb.Text;
+                    String CAddress = CustAddTb.Text;
+                    String Query = "Update CustomerTbl set CustName ='{0}', CustPhone = '{1}', CustAdd = '{2}' where CustCode = {3}";
+                    Query = String.Format(Query, CName, CPhone, CAddress, key);
+                    con.SetData(Query);
+                    MessageBox.Show("Customer Updated !!!!");
+                    ShowCustomer();
+                    clear();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
         }
     }
 }

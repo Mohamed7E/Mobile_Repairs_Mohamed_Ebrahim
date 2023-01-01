@@ -86,10 +86,34 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
                     String CName = CustNameTb.Text;
                     String CPhone = CustPhoneTb.Text;
                     String CAddress = CustAddTb.Text;
-                    String Query = "Update CustomerTbl set CustName ='{0}', CustPhone = '{1}', CustAdd = '{2}' where CustCode = {3}";
+                    String Query = "Update CustomerTb set CustName ='{0}', CustPhone = '{1}', CustAdd = '{2}' where CustCode = {3}";
                     Query = String.Format(Query, CName, CPhone, CAddress, key);
                     con.SetData(Query);
                     MessageBox.Show("Customer Updated !!!!");
+                    ShowCustomer();
+                    clear();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Select Customer");
+            }
+            else
+            {
+                try
+                {
+                    String Query = "Delete from CustomerTb where CustCode = {0}";
+                    Query = String.Format(Query, key);
+                    con.SetData(Query);
+                    MessageBox.Show("Customer Deleted !!!!");
                     ShowCustomer();
                     clear();
                 }

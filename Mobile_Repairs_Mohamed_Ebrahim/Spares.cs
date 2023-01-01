@@ -71,5 +71,56 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
                 key = Convert.ToInt32(PartsList.SelectedRows[0].Cells[0].Value.ToString());
             }
         }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (PartNameTb.Text == "" || PartCostTb.Text == "")
+            {
+                MessageBox.Show("Missing Data");
+            }
+            else
+            {
+                try
+                {
+                    String PName = PartNameTb.Text;
+                    int PCost = Convert.ToInt32(PartCostTb.Text);
+                    String Query = "Update SpareTb set SpNzme = '{0}', SpCost = {1} where SpCode ={2}";
+                    Query = String.Format(Query, PName, PCost, key);
+                    con.SetData(Query);
+                    MessageBox.Show("Spare Updated !!!!");
+                    ShowSpare();
+                    clear();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Select Spare");
+            }
+            else
+            {
+                try
+                {
+                    String Query = "Delete from SpareTb where SpCode = {0}";
+                    Query = String.Format(Query, key);
+                    con.SetData(Query);
+                    MessageBox.Show("Spare Deleted !!!!");
+                    ShowSpare();
+                    clear();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
+
+        }
     }
 }

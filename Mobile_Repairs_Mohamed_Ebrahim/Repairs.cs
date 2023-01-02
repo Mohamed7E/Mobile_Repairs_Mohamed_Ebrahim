@@ -16,6 +16,8 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             InitializeComponent();
             con = new Function();
             ShowRepairs();
+            GetCustomer();
+            GetSpare();
         }
         private void ShowRepairs()
         {
@@ -29,6 +31,22 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             CustCb.DisplayMember = con.GetData(Query).Columns["CustName"].ToString();
             CustCb.ValueMember = con.GetData(Query).Columns["CustCode"].ToString();
             CustCb.DataSource = con.GetData(Query);
+        }
+        private void GetSpare()
+        {
+            string Query = "Select * from SpareTb";
+            SpareCb.DisplayMember = con.GetData(Query).Columns["SpNzme"].ToString();
+            SpareCb.ValueMember = con.GetData(Query).Columns["SpCode"].ToString();
+            SpareCb.DataSource = con.GetData(Query);
+        }
+        private void GetCost()
+        {
+            string Query = "Select * from SpareTb where SpCode = {0}";
+            Query = string.Format(Query, SpareCb.SelectedValue.ToString());
+            foreach (DataRow dr in con.GetData(Query).Rows)
+            {
+                SpareCostTb.Text = dr["SpCost"].ToString();
+            }
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -76,6 +94,11 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
                     MessageBox.Show(Ex.Message);
                 }
             }
+        }
+
+        private void SpareCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GetCost();
         }
     }
 }

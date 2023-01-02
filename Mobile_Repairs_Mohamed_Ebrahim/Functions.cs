@@ -22,6 +22,7 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             Cmd.Connection = Con;
         }
 
+
         public DataTable GetData(String Query)
         {
             dt = new DataTable();

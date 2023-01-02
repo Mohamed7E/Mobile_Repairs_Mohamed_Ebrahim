@@ -128,5 +128,38 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
         {
             key = Convert.ToInt32(SparesList.SelectedRows[0].Cells[0].Value.ToString());
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            login obj = new login();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Repairs obj = new Repairs();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Spares obj = new Spares();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Customers obj = new Customers();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

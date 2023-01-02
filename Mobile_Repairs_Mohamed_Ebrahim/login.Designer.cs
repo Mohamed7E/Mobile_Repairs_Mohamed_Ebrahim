@@ -119,6 +119,7 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.LoginBtn.TabIndex = 11;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // pictureBox1
             // 

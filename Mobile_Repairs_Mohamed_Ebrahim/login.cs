@@ -14,5 +14,10 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
         {
             InitializeComponent();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

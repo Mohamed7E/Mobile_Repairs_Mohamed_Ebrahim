@@ -100,5 +100,33 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
         {
             GetCost();
         }
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Select a Data");
+            }
+            else
+            {
+                try
+                {
+                    string Query = "delete from RepairTB where RepCode = {0}";
+                    Query = string.Format(Query, key);
+                    con.SetData(Query);
+                    MessageBox.Show("Repair Deleted !!!!");
+                    ShowRepairs();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
+        }
+        int key = 0;
+
+        private void SparesList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            key = Convert.ToInt32(SparesList.SelectedRows[0].Cells[0].Value.ToString());
+        }
     }
 }

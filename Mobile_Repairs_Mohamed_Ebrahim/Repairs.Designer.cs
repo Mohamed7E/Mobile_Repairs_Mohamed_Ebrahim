@@ -37,7 +37,6 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.UpdateBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.PhoneTb = new System.Windows.Forms.TextBox();
@@ -104,41 +103,29 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.panel2.Size = new System.Drawing.Size(1633, 10);
             this.panel2.TabIndex = 25;
             // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.BackColor = System.Drawing.Color.LimeGreen;
-            this.UpdateBtn.FlatAppearance.BorderSize = 0;
-            this.UpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateBtn.Location = new System.Drawing.Point(393, 879);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(161, 37);
-            this.UpdateBtn.TabIndex = 24;
-            this.UpdateBtn.Text = "Update";
-            this.UpdateBtn.UseVisualStyleBackColor = false;
-            // 
             // DeleteBtn
             // 
             this.DeleteBtn.BackColor = System.Drawing.Color.Red;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteBtn.Location = new System.Drawing.Point(272, 937);
+            this.DeleteBtn.Location = new System.Drawing.Point(422, 908);
             this.DeleteBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(161, 37);
+            this.DeleteBtn.Size = new System.Drawing.Size(161, 50);
             this.DeleteBtn.TabIndex = 23;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // SaveBtn
             // 
             this.SaveBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.SaveBtn.FlatAppearance.BorderSize = 0;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Location = new System.Drawing.Point(170, 879);
+            this.SaveBtn.Location = new System.Drawing.Point(201, 908);
             this.SaveBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(161, 37);
+            this.SaveBtn.Size = new System.Drawing.Size(161, 50);
             this.SaveBtn.TabIndex = 22;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = false;
@@ -298,6 +285,7 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             // 
             // SpareCostTb
             // 
+            this.SpareCostTb.Enabled = false;
             this.SpareCostTb.Font = new System.Drawing.Font("Trebuchet MS", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.SpareCostTb.Location = new System.Drawing.Point(201, 837);
             this.SpareCostTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -335,9 +323,9 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.label10.Location = new System.Drawing.Point(422, 802);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 32);
+            this.label10.Size = new System.Drawing.Size(139, 32);
             this.label10.TabIndex = 41;
-            this.label10.Text = "Totel Cost";
+            this.label10.Text = "Rrpair Cost";
             // 
             // SparesList
             // 
@@ -390,6 +378,7 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.SparesList.ThemeStyle.RowsStyle.Height = 29;
             this.SparesList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.Gold;
             this.SparesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SparesList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SparesList_CellContentClick);
             // 
             // Repairs
             // 
@@ -415,7 +404,6 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.PhoneTb);
@@ -443,7 +431,6 @@ namespace Mobile_Repairs_Mohamed_Ebrahim
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.TextBox PhoneTb;
